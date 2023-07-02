@@ -1,12 +1,15 @@
 package  Domain;
 
+//класс продукты
 public class Product {
 
-    private int price;
-    private int place;
-    private String name;
+    //поля:
+    private int price; // цена
+    private int place; // позиция
+    private String name; // название
     private  long id;
 
+    // конструкторы продуктов
     public Product(){
         this.price = -1;
         this.place = -1;
@@ -34,7 +37,7 @@ public class Product {
         this.id = id;
     }
 
-
+// геттеры, сеттеры для полей продуктов
     public int getPrice(){
         return price;
     }

@@ -4,13 +4,15 @@ import Domain.Product;
 
 import java.util.List;
 
+// класс нашего автомата с товарами
 public class VendingMachine {
 
-    private Holder holder;
-    private CoinDispencer dispencer;
-    private List<Product> assort;
-    private Display display;
+    private Holder holder; // спирали (держатель)
+    private CoinDispencer dispencer; // приемник монет
+    private List<Product> assort; // список продуктов
+    private Display display; // дисплей нашего автомата
 
+    // конструктор торгового автомата
     public VendingMachine(Holder holder, CoinDispencer dispencer, List<Product> assort, Display display) {
         this.holder = holder;
         this.dispencer = dispencer;
@@ -18,6 +20,7 @@ public class VendingMachine {
         this.display = display;
     }
 
+    // метод покупки товара
     public void buyProduct(Product p, int price) {
         if (assort.contains(p) && holder.getBalance() >= price) {
             if (dispencer.dispence(price)) {
@@ -29,6 +32,7 @@ public class VendingMachine {
         }
     }
 
+    // метод выдачи товара
     public void releaseProduct(Product p, Holder h) {
         h.release(0, 0);
         assort.remove(p);

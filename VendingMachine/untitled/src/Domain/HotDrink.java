@@ -1,7 +1,9 @@
 package Domain;
 
+// класс гоячие напитки
 public class HotDrink extends Product{
 
+    // поле температуры
     private int drinkTemperature;
 
     public int getDrinkTemperature(){
@@ -12,6 +14,7 @@ public class HotDrink extends Product{
         this.drinkTemperature = drinkTemperature;
     }
 
+    // конструктор горячих напитков
     public HotDrink(int price,  int place, String name, long id, int drinkTemperature)
     {
         super(price,place,name,id);
@@ -20,7 +23,7 @@ public class HotDrink extends Product{
 
     @Override
     public String toString() {
-        return super.toString() + "\nTemperature = "+ drinkTemperature ;
+        return super.toString() + "Temperature = "+ drinkTemperature + "\n";
     }
 
 }

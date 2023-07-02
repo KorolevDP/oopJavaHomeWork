@@ -5,9 +5,11 @@ import Domain.Places;
 import java.util.ArrayList;
 import java.util.List;
 
+//класс спиралей, на которых держатся товары
 public class Holder {
-    private List<Places> places;
+    private List<Places> places; // список спиралей
 
+    // метод генерации спиралей с позициями
     public Holder(int xSize, int ySize) {
         places = new ArrayList<>(xSize * ySize);
         for (int x = 0; x < xSize; x++) {
@@ -17,6 +19,7 @@ public class Holder {
         }
     }
 
+    // метод выдачи выбранного товара
     public boolean release(int x, int y) {
         return places.stream().filter(place -> place.getCol() == x && place.getRow() == y)
                 .findFirst().get().setEmpty(true);

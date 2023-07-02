@@ -1,9 +1,10 @@
 package Domain;
 
+// класс места в VendMachine
 public class Places {
-    private int row;
-    private int col;
-    private boolean empty;
+    private int row; //строка
+    private int col; // столбец
+    private boolean empty; // признак заполнености
 
     public  Places(int row, int col){
         this.row = row;
@@ -20,6 +21,7 @@ public class Places {
         return result;
     }
 
+    // определяем геттеры сеттеры для строк и столбцов
     public int getRow(){
         return row;
     }
