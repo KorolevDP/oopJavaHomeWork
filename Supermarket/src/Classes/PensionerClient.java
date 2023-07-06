@@ -29,6 +29,22 @@ public class PensionerClient extends Actor {
         super.isTakeOrder = pikUpOrder;
     }
 
+    public boolean refundProduct() {
+        return false;
+    }
+
+    public boolean checkProduct() {
+        return false;
+    }
+
+    public boolean failureRefund() {
+        return false;
+    }
+
+    public void refundMoney() {
+
+    }
+
     public Actor getActor() {
         return this;
     }

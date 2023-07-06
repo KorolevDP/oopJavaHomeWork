@@ -2,6 +2,9 @@ package Classes;
 
 import Interfaces.iActorBehaviuor;
 
+/**
+ *  Класс специального клиента
+ */
 public class TaxService implements iActorBehaviuor{
 
     private String name;
@@ -9,7 +12,7 @@ public class TaxService implements iActorBehaviuor{
     private boolean isMakeOrder;
 
     public TaxService() {
-        this.name = "Tax audit";
+        this.name = "Tax audit"; // задаем неизменяемое имя
     }
 
     public String getName() {
