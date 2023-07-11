@@ -72,10 +72,10 @@ public class Main {
             System.out.println("=========================================");
         }
 
-        Collections.sort(course1.getStudStream());
+        Collections.sort(course1.getStudStream()); // сортировка потока
 
         for (StudentGroup studentGr : course1) {
-            for (Student std : studentGr) {
+            for (Student std : studentGr) {              // сортировка студентов в группе
                 Collections.sort(studentGr.getGroup());
             }
         }
@@ -90,7 +90,7 @@ public class Main {
             }
             System.out.println("=========================================");
         }
-
+                
 /*        for (Student std : group4580) {
             System.out.println(std);
         }

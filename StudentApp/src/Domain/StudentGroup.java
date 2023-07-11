@@ -74,6 +74,11 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
 
     }
 
+    /**
+     * Метод сравнения групп в потоке по размеру группы
+     * @param o the object to be compared.
+     * @return
+     */
     @Override
     public int compareTo(StudentGroup o) {
 

@@ -3,11 +3,19 @@ package Domain;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ *  Класс потока студентов
+ */
 public class StudentStream implements Iterable<StudentGroup> {
 
     private List<StudentGroup> studStream;
     private Integer idStStream;
 
+    /**
+     * Конструктор потока
+     * @param studStream имя потока студентов
+     * @param idStStream
+     */
     public StudentStream(List<StudentGroup> studStream, Integer idStStream) {
         this.studStream = studStream;
         this.idStStream = idStStream;
@@ -17,6 +25,7 @@ public class StudentStream implements Iterable<StudentGroup> {
         return studStream;
     }
 
+    // геттеры + сеттеры
     public Integer getIdStudCourse() {
         return idStStream;
     }
@@ -37,6 +46,9 @@ public class StudentStream implements Iterable<StudentGroup> {
                 '}';
     }
 
+    /**
+     * Итератор, аналогичный итератору студентов
+     */
     @Override
     public Iterator<StudentGroup> iterator() {
         return new Iterator<StudentGroup>() {
