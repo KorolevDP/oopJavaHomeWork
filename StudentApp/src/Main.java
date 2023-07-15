@@ -1,5 +1,6 @@
 import Controllers.EmploeeController;
 import Domain.*;
+import Services.TeacherService;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -90,7 +91,31 @@ public class Main {
             }
             System.out.println("=========================================");
         }
-                
+
+        Teacher t1 = new Teacher("Олег Витальевич", 66, 900, "Доцент");
+        Teacher t2 = new Teacher("Нина Семеновна", 33, 901, "Кандидат наук");
+        Teacher t3 = new Teacher("Виктор Епифанович", 76, 902, "Профессор");
+        Teacher t4 = new Teacher("Дмитрий Петрович", 96, 903, "Академик наук");
+        Teacher t5 = new Teacher("Оксана Андреевна", 86, 904, "Профессор");
+
+        List<Teacher> listTeach1 = new ArrayList<>();
+
+        Collections.addAll(listTeach1, t1, t2, t3, t4, t5);
+
+        for (Teacher tech : listTeach1) {
+            System.out.println(tech);
+        }
+
+        Collections.sort(TeacherService.getSortByFioTecherLst(listTeach1));
+        System.out.println("==============После сортировки===================\n");
+
+
+        Emploee e1 = new Emploee("Федорович ", 60, "разнорабочий");
+        Emploee e2 = new Emploee("Палыч ", 65, "маляр");
+        Emploee e3 = new Emploee("Макарыч ", 61, "дворник");
+
+
+
 /*        for (Student std : group4580) {
             System.out.println(std);
         }

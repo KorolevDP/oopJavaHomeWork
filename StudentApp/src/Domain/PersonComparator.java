@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 /**
  * Класс для сравнения людей в университете
- * * @param <T>  задаем компаратор
+ * * @param <T>  задаем дженерик для компаратора
  */
 public class PersonComparator<T extends Person> implements Comparator<T> {
 

@@ -15,20 +15,30 @@ public class StudentService  implements  iPersonService<Student>{
         this.students = new ArrayList<Student>();
     }
 
+    /**
+     * Переопределяем метод для класса студентов
+     * @return  возвращает список всех студентов
+     */
     @Override
     public List<Student> getAll() {
         return students;
     }
 
+    /**
+     * Метод добавления студента в список
+     * @param firstName  имя
+     * @param age возраст
+     */
     public void create(String firstName, int age) {
         Student per = new Student(firstName, age, count);
         count++;
         students.add(per);
     }
 
+    /**
+     * Определяем метод сортировки студентов из списка
+     */
     public void getSortByFioStdLst() {
-        //List<Student> newStudentList = new ArrayList<Student>(students);
         students.sort(new PersonComparator<Student>());
-        //return newStudentList;
     }
 }

@@ -6,7 +6,7 @@ import Domain.Emploee;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmploeeService implements  iPersonService<Emploee> {
+public class EmploeeService implements iPersonService<Emploee> {
 
     private int count;
     private List<Emploee> emploees;
@@ -20,6 +20,7 @@ public class EmploeeService implements  iPersonService<Emploee> {
 
     @Override
     public List<Emploee> getAll() {
+
         throw new UnsupportedOperationException("Uniplemented method 'getAll'");
     }
 
