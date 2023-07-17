@@ -4,6 +4,10 @@ import java.util.List;
 
 import Domain.Person;
 
+/**
+ * Универсальный метод, для расчета среднего возраста субъекта из университета
+ * @param <T> дженерик для списка объектов
+ */
 public class AverageAge<T extends Person> {
 
     public Double getAverageAge(List<T> persons) {
