@@ -4,6 +4,7 @@ import Domain.PersonComparator;
 import Domain.Teacher;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TeacherService implements iPersonService<Teacher> {
@@ -24,7 +25,7 @@ public class TeacherService implements iPersonService<Teacher> {
        teachers.add(new Teacher(firstName, age, 0, "unknown"));
     }
 
-    public void getSortByFioTecherLst() {
+    public  void SortByFioTecherLst() {
         teachers.sort(new PersonComparator<Teacher>());
     }
 }

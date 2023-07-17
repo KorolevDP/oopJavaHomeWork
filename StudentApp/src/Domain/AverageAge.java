@@ -2,13 +2,16 @@ package Domain;
 
 import java.util.List;
 
-public class AverageAge{
+import Domain.Person;
 
-    public static <T extends Person> Double man(List<T> db) {
-        Double sum = (double) 0;
-        for (T person : db) {
-            sum += person.getAge();
+public class AverageAge<T extends Person> {
+
+    public Double getAverageAge(List<T> persons) {
+        double res = 0;
+        for (int i = 0; i < persons.size(); i++) {
+
+            res = res + persons.get(i).getAge();
         }
-        return sum / db.size();
+        return res / persons.size();
     }
 }

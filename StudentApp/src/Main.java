@@ -4,6 +4,7 @@ import Services.TeacherService;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -64,32 +65,38 @@ public class Main {
         StudentStream course1 = new StudentStream(listStream1, 1); // создаем сам поток
 
 
-        for (StudentGroup studentGr : course1) {
+  /*      for (StudentGroup studentGr : course1) {
             System.out.println("Group " + studentGr.getIdGroup());
 
             for (Student std : studentGr) {
                 System.out.println(std);
             }
             System.out.println("=========================================");
-        }
+        }*/
 
         Collections.sort(course1.getStudStream()); // сортировка потока
 
-        for (StudentGroup studentGr : course1) {
+    /*    for (StudentGroup studentGr : course1) {
             for (Student std : studentGr) {              // сортировка студентов в группе
                 Collections.sort(studentGr.getGroup());
             }
-        }
+        }*/
 
-        System.out.println("================После сортировки=======================\n");
+        //System.out.println("================После сортировки=======================\n");
 
-        for (StudentGroup studentGr : course1) {
+ /*       for (StudentGroup studentGr : course1) {
             System.out.println("Group " + studentGr.getIdGroup());
 
             for (Student std : studentGr) {
                 System.out.println(std);
             }
             System.out.println("=========================================");
+        }*/
+
+        System.out.println("==============Студенты===================");
+
+        for (Student stud : listStud2) {
+            System.out.println(stud);
         }
 
         Teacher t1 = new Teacher("Олег Витальевич", 66, 900, "Доцент");
@@ -102,19 +109,52 @@ public class Main {
 
         Collections.addAll(listTeach1, t1, t2, t3, t4, t5);
 
+        System.out.println("\n=================Преподы=======================");
+
         for (Teacher tech : listTeach1) {
             System.out.println(tech);
         }
 
-        Collections.sort(TeacherService.getSortByFioTecherLst(listTeach1));
-        System.out.println("==============После сортировки===================\n");
+        System.out.println("==============После сортировки==================");
 
+        Comparator<Teacher> byAge = Comparator.comparing(Teacher::getAge);
+        Collections.sort(listTeach1, byAge);
+
+        for (Teacher tech : listTeach1) {
+            System.out.println(tech);
+        }
 
         Emploee e1 = new Emploee("Федорович ", 60, "разнорабочий");
         Emploee e2 = new Emploee("Палыч ", 65, "маляр");
         Emploee e3 = new Emploee("Макарыч ", 61, "дворник");
 
+        List<Emploee> listEmpl = new ArrayList<>();
 
+        Collections.addAll(listEmpl, e1, e2, e3);
+
+        System.out.println("\n===============Работяги====================");
+
+        for (Emploee empl : listEmpl) {
+            System.out.println(empl);
+        }
+
+        System.out.println("===========================================");
+
+        AverageAge <Teacher> aveTeacher = new AverageAge<Teacher>();
+        aveTeacher.getAverageAge(listTeach1);
+        System.out.println("\nСредний возраст учителя: " + aveTeacher.getAverageAge(listTeach1) + " лет");
+
+        AverageAge <Student> aveStud = new AverageAge<Student>();
+        aveStud.getAverageAge(listStud2);
+        System.out.println("Средний возраст студента: " + aveStud.getAverageAge(listStud2) + " лет");
+
+        AverageAge <Emploee> aveEmpl= new AverageAge<Emploee>();
+        aveEmpl.getAverageAge(listEmpl);
+        System.out.println("Средний возраст работяги: " + aveEmpl.getAverageAge(listEmpl) + " лет");
+
+        /*System.out.println("Средний возраст учеников составляет - " + AverageAge.getAverageAge(listStud2));
+        System.out.println("Средний возраст учителей составляет - " + AverageAge.getAverageAge(listTeach1));
+        System.out.println("Средний возраст учителей составляет - " + AverageAge.getAverageAge(listEmpl));*/
 
 /*        for (Student std : group4580) {
             System.out.println(std);

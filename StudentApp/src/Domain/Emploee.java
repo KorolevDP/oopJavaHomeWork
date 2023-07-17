@@ -17,4 +17,11 @@ public class Emploee  extends Person {
         super(firstName, age);
         this.special = special;
     }
+
+    @Override
+    public String toString() {
+        return "Emploee [name=" + super.getName() +
+                ", age=" + super.getAge() +
+                ", special=" + special + "]";
+    }
 }

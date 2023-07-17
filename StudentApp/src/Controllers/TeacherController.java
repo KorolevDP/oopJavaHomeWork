@@ -10,6 +10,6 @@ public class TeacherController implements iPersonController<Teacher> {
     @Override
     public void create(String firstName, int age){
         dataService.create(firstName, age);
-        dataService.getSortByFioTecherLst();
+        dataService.SortByFioTecherLst();
     }
 }
