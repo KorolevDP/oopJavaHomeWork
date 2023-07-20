@@ -1,6 +1,6 @@
 
 /**
- *  Абстрактный класс человека в университете
+ * Абстрактный класс человека в университете в формате дженерика
  */
 public abstract class Person<T,V> {
     /**
@@ -13,7 +13,7 @@ public abstract class Person<T,V> {
     private V age;
 
     /**
-     * Конструктор человека в университете
+     * Конструктор человека в университете в формате дженерика
      * @param name  - имя
      * @param age - возраст
      */
@@ -22,19 +22,19 @@ public abstract class Person<T,V> {
         this.age = age;
     }
 
-    public String getName() {
+    public T getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(T name) {
         this.name = name;
     }
 
-    public int getAge() {
+    public V getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(V age) {
         this.age = age;
     }
 

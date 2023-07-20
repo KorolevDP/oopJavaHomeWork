@@ -42,8 +42,8 @@ public class Student extends Person implements Comparable<Student> {
      * то сравниваются id
      *
      * @param o the object to be compared.
-     * @return
-     */
+     *
+     * */
     @Override
     public int compareTo(Student o) {
 

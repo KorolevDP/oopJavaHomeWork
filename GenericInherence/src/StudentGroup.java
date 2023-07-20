@@ -7,10 +7,10 @@ import java.util.List;
  * Класс группы студентов, содержит в себе список студентов
  * Так же подключается итератор
  */
-public class StudentGroup < T extends Comparable<T>, V> Iterable<Student<T,V>> {
+public class StudentGroup<T extends Comparable<T>, V> implements Iterable<Student<T, V>> {
 
-    private List<Student<T,V>> group;
-    private <T> idGroup;
+    private List<Student<T, V>> group;
+    private V idGroup;
 
     /**
      * Конструктор группы студентов
@@ -18,24 +18,24 @@ public class StudentGroup < T extends Comparable<T>, V> Iterable<Student<T,V>> {
      * @param group   имя списка студентов
      * @param idGroup
      */
-    public StudentGroup(List<Student<T,V>> group, V idGroup) {
+    public StudentGroup(List<Student<T, V>> group, V idGroup) {
         this.group = group;
         this.idGroup = idGroup;
     }
 
-    public List<Student> getGroup() {
+    public List<Student<T, V>> getGroup() {
         return group;
     }
 
-    public <V> getIdGroup() {
+    public V getIdGroup() {
         return idGroup;
     }
 
-    public void setGroup(List<Student> group) {
+    public void setGroup(List<Student<T, V>> group) {
         this.group = group;
     }
 
-    public void setIdGroup(Integer idGroup) {
+    public void setIdGroup(V idGroup) {
         this.idGroup = idGroup;
     }
 
@@ -51,8 +51,8 @@ public class StudentGroup < T extends Comparable<T>, V> Iterable<Student<T,V>> {
      * Задаем итератор
      */
     @Override
-    public Iterator<Student> iterator() {
-        return new Iterator<Student>() {
+    public Iterator<Student<T, V>> iterator() {
+        return new Iterator<Student<T, V>>() {
 
             private int counter; // счетчик экземпляров
 
@@ -67,27 +67,11 @@ public class StudentGroup < T extends Comparable<T>, V> Iterable<Student<T,V>> {
             }
 
             @Override
-            public Student next() {
+            public Student<T, V> next() {
                 return group.get(counter++);
             }
         };
 
-    }
-
-    /**
-     * Метод сравнения групп в потоке по размеру группы
-     * @param o the object to be compared.
-     * @return
-     */
-    @Override
-    public int compareTo(StudentGroup o) {
-
-        if (StudentGroup.this.getGroup().size() == o.getGroup().size()) {
-            return 0;
-        }
-        if (StudentGroup.this.getGroup().size() < o.getGroup().size()) {
-            return -1;
-        } else return 1;
     }
 }
 

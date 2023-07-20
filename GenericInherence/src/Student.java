@@ -2,7 +2,7 @@
 /**
  * Класс студента, наследуемый от класса Person
  */
-public class Student<T,V> extends Comparable<T,V>, Person<T,V> implements Comparable<Student<T,V>> {
+public class Student<T extends Comparable <T>, V> extends  Person<T,V> implements Comparable<Student<T,V>> {
 
     /**
      * Поле id
@@ -11,7 +11,6 @@ public class Student<T,V> extends Comparable<T,V>, Person<T,V> implements Compar
 
     /**
      * Конструктор студента
-     *
      * @param name имя
      * @param age  возраст
      * @param id
@@ -21,7 +20,7 @@ public class Student<T,V> extends Comparable<T,V>, Person<T,V> implements Compar
         this.id = id;
     }
 
-    public int getId() {
+    public V getId() {
         return id;
     }
 
@@ -47,24 +46,5 @@ public class Student<T,V> extends Comparable<T,V>, Person<T,V> implements Compar
     public int compareTo(Student<T,V> o) {
 
         return super.getName().compareTo(o.getName());
-/*
-        if (super.getAge() == o.getAge())
-        {
-            if(this.id==o.id)
-            {
-                return 0;
-            }
-            if(this.id<o.id)
-            {
-                return -1;
-            }
-            return 1;
-        }
-        if(super.getAge() < o.getAge())
-        {
-            return -1;
-        }
-        else return 1;
-    }*/
     }
 }
