@@ -12,11 +12,6 @@ public class ModelList implements iGetModel {
         this.students = students;
     }
 
-    @Override
-    public HashMap<Long, Student> getAllHashStudents() {
-        return null;
-    }
-
     public List<Student> getAllStudents() {
         return students;
     }

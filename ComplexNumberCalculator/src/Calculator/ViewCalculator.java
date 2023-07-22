@@ -1,3 +1,5 @@
+package Calculator;
+
 import java.util.Scanner;
 
 public class ViewCalculator {
@@ -9,20 +11,26 @@ public class ViewCalculator {
     }
 
     public void run() {
+
         while (true) {
-            int primaryArg = promptInt("Введите первый аргумент: ");
+            int primaryArg = promptInt("Введите первое комплексное число: ");
             calculator.sum(primaryArg);
             //iCalculable calculator = calculableFactory.create(primaryArg);
             while (true) {
-                String cmd = prompt("Введите команду (*, +, =) : ");
+                String cmd = prompt("Введите команду (*, /, +, =) : ");
                 if (cmd.equals("*")) {
-                    int arg = promptInt("Введите второй аргумент: ");
+                    int arg = promptInt("Введите второе комплексное число: ");
                     calculator.multi(arg);
                     continue;
                 }
                 if (cmd.equals("+")) {
                     int arg = promptInt("Введите второй аргумент: ");
                     calculator.sum(arg);
+                    continue;
+                }
+                if (cmd.equals("/")) {
+                    int arg = promptInt("Введите второй аргумент: ");
+                    calculator.division(arg);
                     continue;
                 }
                 if (cmd.equals("=")) {
