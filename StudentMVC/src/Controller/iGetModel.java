@@ -8,5 +8,7 @@ import java.util.List;
 public interface iGetModel {
 
     public HashMap<Long,Student> getAllHashStudents();
-    public List<Student> getAllStudents();
+    //public List<Student> getAllStudents();
+    public void deleteStudent(Long idStudent);
+
 }

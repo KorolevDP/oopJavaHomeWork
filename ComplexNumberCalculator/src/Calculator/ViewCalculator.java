@@ -13,28 +13,28 @@ public class ViewCalculator {
     public void run() {
 
         while (true) {
-            int primaryArg = promptInt("Введите первое комплексное число: ");
+            ComplexNumber primaryArg = promptCompl("Введите первое комплексное число: ");
             calculator.sum(primaryArg);
-            //iCalculable calculator = calculableFactory.create(primaryArg);
+
             while (true) {
                 String cmd = prompt("Введите команду (*, /, +, =) : ");
                 if (cmd.equals("*")) {
-                    int arg = promptInt("Введите второе комплексное число: ");
+                    ComplexNumber arg = promptCompl("Введите второе комплексное число: ");
                     calculator.multi(arg);
                     continue;
                 }
                 if (cmd.equals("+")) {
-                    int arg = promptInt("Введите второй аргумент: ");
+                    ComplexNumber arg = promptCompl("Введите второе комплексное число: ");
                     calculator.sum(arg);
                     continue;
                 }
                 if (cmd.equals("/")) {
-                    int arg = promptInt("Введите второй аргумент: ");
+                    ComplexNumber arg = promptCompl("Введите второе комплексное число: ");
                     calculator.division(arg);
                     continue;
                 }
                 if (cmd.equals("=")) {
-                    int result = calculator.getResult();
+                    ComplexNumber result = calculator.getResult();
                     System.out.printf("Результат %d\n", result);
                     break;
                 }
@@ -53,9 +53,11 @@ public class ViewCalculator {
         return in.nextLine();
     }
 
-    private int promptInt(String message) {
+    private ComplexNumber promptCompl(String message) {
         Scanner in = new Scanner(System.in);
         System.out.print(message);
-        return Integer.parseInt(in.nextLine());
+        return  in.nextLine();
     }
+
+
 }

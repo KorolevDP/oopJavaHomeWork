@@ -4,7 +4,7 @@ public class ComplexNumber {
 
   protected double real, image;
 
-  public ComplexNumber() {}
+ // public ComplexNumber() {}
 
     public  ComplexNumber(double real, double image)
     {

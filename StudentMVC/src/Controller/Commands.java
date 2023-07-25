@@ -1,5 +1,8 @@
 package Controller;
 
+/**
+ * Список доступных команд
+ */
     public enum Commands {
         NONE,
         CREATE,

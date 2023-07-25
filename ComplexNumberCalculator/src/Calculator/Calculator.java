@@ -1,16 +1,20 @@
 package Calculator;
 
-public final class Calculator implements iCalculable, ComplexNumber {
+public final class Calculator extends ComplexNumber implements iCalculable {
 
-    public Calculator() {}
+    private ComplexNumber primaryArg;
+
+    public Calculator(double real, double image) {
+        super(real, image);
+    }
 
     @Override
     public iCalculable sum(ComplexNumber cB) {
 
-        ComplexNumber sumC = new ComplexNumber();
+        ComplexNumber sumC = new ComplexNumber(real,image);
 
-        sumC.real = real + cB.real;
-        sumC.image = image + cB.image;
+        sumC.real = primaryArg.real + cB.real;
+        sumC.image = primaryArg.image + cB.image;
 
         return this;
 
@@ -19,10 +23,10 @@ public final class Calculator implements iCalculable, ComplexNumber {
     @Override
     public iCalculable multi(ComplexNumber cB) {
 
-        ComplexNumber prod = new ComplexNumber();
+        ComplexNumber prod = new ComplexNumber(real,image);
 
-        prod.real = real * cB.real - image * cB.image;
-        prod.image = image * cB.real + real* cB.image;
+        prod.real = primaryArg.real * cB.real - primaryArg.image * cB.image;
+        prod.image = primaryArg.image * cB.real + primaryArg.real * cB.image;
 
         return this;
     }
@@ -30,37 +34,17 @@ public final class Calculator implements iCalculable, ComplexNumber {
     @Override
     public iCalculable division(ComplexNumber cB) {
 
-        ComplexNumber div = new ComplexNumber();
+        ComplexNumber div = new ComplexNumber(real,image);
 
-
+        div.real = (primaryArg.real * cB.real + primaryArg.image * cB.image) / ((Math.pow(cB.real, 2) + (Math.pow(cB.image, 2))));
+        div.image = (primaryArg.image * cB.real - primaryArg.real * cB.image) / ((Math.pow(primaryArg.real, 2) + (Math.pow(cB.image, 2))));
 
         return this;
     }
 
     @Override
-    public int getResult() {
+    public ComplexNumber getResult() {
         return primaryArg;
     }
 }
 
-/* Сумма
-z1= a1+ib1
-z2= a2+ib2
-z1+z2 = a1+a2 + (b1+b2)i
-
-Разность
-z1= a1+ib1
-z2= a2+ib2
-z1-z2 = a1-a2 + (b1-b2)i
-
-Умножение
-z1= a1+ib1
-z2= a2+ib2
-z1*z2 = a1*a2 - b1*b2 + (a1*b2+b1*a2)i
-
-Деление
-z1= a1+ib1
-z2= a2+ib2
-z1/z2 = (a1*a2 + b1*b2)/((pow(a2,2) + (pow(b2,2)) + i*(b1*a2 - a1*b2)/((pow(a,2) + (pow(b2,2))
-
- */

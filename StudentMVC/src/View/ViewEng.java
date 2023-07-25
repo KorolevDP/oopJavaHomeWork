@@ -7,30 +7,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class ViewEng  implements iGetView {
+public class ViewEng implements iGetView {
 
-    public void printAllStudents(List<Student> students) {
+/*    public void printAllStudents(List<Student> students) {
         System.out.println("-------------List Students-------------");
-        for (Student stud: students)
-        {
+        for (Student stud : students) {
             System.out.println(stud);
         }
         System.out.println("==========================================");
-    }
+    }*/
 
 
+    /**
+     * Вывод всех студентов на печать
+     * @param hashStudents
+     */
     @Override
     public void printAllHashStudents(HashMap<Long, Student> hashStudents) {
         System.out.println("-------------List Students-------------");
-        for(Student stud: hashStudents.values())
-        {
-            System.out.println(stud.toString());
-        }
+        hashStudents.forEach((key, value) -> System.out.println(key + " " + value));
         System.out.println("==========================================");
     }
 
     @Override
-    public String promt(String message){
+    public String promt(String message) {
         Scanner in = new Scanner(System.in);
         System.out.print(message);
         return in.nextLine();

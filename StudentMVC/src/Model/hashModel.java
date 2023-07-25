@@ -3,7 +3,6 @@ package Model;
 import Controller.iGetModel;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class hashModel  implements iGetModel{
     private HashMap<Long,Student> hashStudents;
@@ -18,8 +17,13 @@ public class hashModel  implements iGetModel{
         return hashStudents;
     }
 
-    @Override
+   /* @Override
     public List<Student> getAllStudents() {
         return null;
+    }*/
+
+    @Override
+    public void deleteStudent(Long idStudent) {
+
     }
 }
